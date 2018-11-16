@@ -6,7 +6,7 @@
 /*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 13:33:22 by lgrudler          #+#    #+#             */
-/*   Updated: 2018/11/12 17:02:39 by lgrudler         ###   ########.fr       */
+/*   Updated: 2018/11/16 22:58:57 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 void	*ft_memalloc(size_t size)
 {
-
-	char *str;
-	char *str2;
-	size_t i;
+	char	*str;
+	char	*str2;
+	size_t	i;
 
 	i = 0;
-	if(!(str = (char *)malloc(sizeof(str) * size)))
+	if (!(str = (char *)malloc(sizeof(str) * size)))
 		return (NULL);
 	while (i < size)
 	{
@@ -29,5 +28,4 @@ void	*ft_memalloc(size_t size)
 	}
 	str2 = (void *)str;
 	return (str2);
-
 }

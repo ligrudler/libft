@@ -6,16 +6,16 @@
 /*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 21:25:34 by lgrudler          #+#    #+#             */
-/*   Updated: 2018/11/12 15:57:51 by lgrudler         ###   ########.fr       */
+/*   Updated: 2018/11/16 22:42:52 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _LIBFT_H
 # define _LIBFT_H
 
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
+# include <unistd.h>
+# include <string.h>
+# include <stdlib.h>
 
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
@@ -60,8 +60,8 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s);
-//char	**ft_strsplit(char const *s, char c);
-//char	*ft_itoa(int n);
+char	**ft_strsplit(char const *s, char c);
+char	*ft_itoa(int n);
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
 void	ft_putendl(char const *s);

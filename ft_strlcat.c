@@ -6,17 +6,17 @@
 /*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:05:55 by lgrudler          #+#    #+#             */
-/*   Updated: 2018/11/15 13:38:38 by lgrudler         ###   ########.fr       */
+/*   Updated: 2018/11/16 22:52:59 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcat(char *dest, const char *src, size_t count)
+size_t	ft_strlcat(char *dest, const char *src, size_t count)
 {
-	size_t i;
-	size_t j;
-	int k;
+	size_t	i;
+	size_t	j;
+	int		k;
 
 	j = 0;
 	k = 0;

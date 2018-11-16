@@ -6,7 +6,7 @@
 /*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 14:57:04 by lgrudler          #+#    #+#             */
-/*   Updated: 2018/11/14 17:10:17 by lgrudler         ###   ########.fr       */
+/*   Updated: 2018/11/16 22:52:06 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ int	ft_strnequ(char const *s1, char const *s2, size_t n)
 		i++;
 	}
 	return (0);
-
 }

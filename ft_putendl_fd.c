@@ -6,7 +6,7 @@
 /*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 16:24:02 by lgrudler          #+#    #+#             */
-/*   Updated: 2018/11/12 16:55:41 by lgrudler         ###   ########.fr       */
+/*   Updated: 2018/11/16 22:57:09 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,3 @@ void	ft_putendl_fd(char const *s, int fd)
 	ft_putstr_fd(s, fd);
 	ft_putchar_fd('\n', fd);
 }
-

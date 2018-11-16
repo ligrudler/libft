@@ -6,16 +6,16 @@
 /*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:17:47 by lgrudler          #+#    #+#             */
-/*   Updated: 2018/11/14 16:54:57 by lgrudler         ###   ########.fr       */
+/*   Updated: 2018/11/16 22:56:41 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	int i;
-	char *d;
+	int		i;
+	char	*d;
 
 	d = (char *)s;
 	i = 0;
