@@ -6,7 +6,7 @@
 /*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:50:16 by lgrudler          #+#    #+#             */
-/*   Updated: 2018/11/16 23:13:49 by lgrudler         ###   ########.fr       */
+/*   Updated: 2018/11/20 16:42:52 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	if (n == 0 || dest == src)
 		return (dest);
-	while (str1[i] && i < n)
+	while (i < n)
 	{
 		str2[i] = str1[i];
 		i++;
 	}
-	str2[i] = '\0';
+	dest = (void *)str2;
 	return (dest);
 }

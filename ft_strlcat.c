@@ -6,7 +6,7 @@
 /*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:05:55 by lgrudler          #+#    #+#             */
-/*   Updated: 2018/11/16 22:52:59 by lgrudler         ###   ########.fr       */
+/*   Updated: 2018/11/20 17:06:10 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t count)
 	k = 0;
 	i = 0;
 	if (count == 0)
-		return (ft_strlen(dest));
+		return (ft_strlen(src));
 	while (dest[i] && i < count)
 		i++;
 	j = i;
