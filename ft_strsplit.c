@@ -6,13 +6,13 @@
 /*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:18:19 by lgrudler          #+#    #+#             */
-/*   Updated: 2018/11/21 16:05:43 by lgrudler         ###   ########.fr       */
+/*   Updated: 2018/11/21 23:01:20 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_words(char const *s, char c)
+int		ft_count_words(char const *s, char c)
 {
 	int i;
 	int mot;
@@ -25,7 +25,7 @@ int	ft_count_words(char const *s, char c)
 	{
 		if (s[i] == c)
 			check = 1;
-		else
+		if (s[i] != c && check == 1)
 		{
 			mot++;
 			check = 0;
@@ -33,46 +33,45 @@ int	ft_count_words(char const *s, char c)
 		i++;
 	}
 	return (mot);
-}	
-
-char	**is_whitespaces(const char *s, int mot, char c, char **tab)
-{
-	unsigned int start;
-	size_t k;
-	int j;
-	int i;
-
-	i = 0;
-	j = -1;
-	st = ft_strchr(*s, c);
-
-	while (++j < mot)
-	{
-		while (s[i] == c)
-			i++;
-		k = i;
-		while (s[i] != c)
-		   i++;	
-		tab[j] = ft_strsub(s, k, i);
-		while (s[i] == c)
-		{
-			i++;
-			if (s[i] == '\0')
-				tab[j + 1] = 0;
-		}
-	}
-	tab[j] = 0;
-	return (tab);
 }
 
-char **ft_strsplit(char const *s, char c)
+int		ft_count_letters(const char *s, char c, int i)
 {
-	int mot;
-	char **tab;
+	int k;
 
+	k = 0;
+	while (s[i] != c)
+	{
+		k++;
+		i++;
+	}
+	return (k);
+}
+
+char	**ft_strsplit(char const *s, char c)
+{
+	int		mot;
+	int		i;
+	char	**tab;
+	int		k;
+	int		j;
+
+	j = 0;
+	i = 0;
 	mot = ft_count_words(s, c);
 	if (!(tab = (char**)malloc(sizeof(char*) * mot + 1)))
 		return (0);
-	is_whitespaces(s, mot, c, tab);
+	while (s[i] && j < mot)
+	{
+		while (s[i] == c)
+			i++;
+		k = ft_count_letters(s, c, i);
+		tab[j] = ft_strsub(s, i, k);
+		while (s[i] != c)
+			i++;
+		j++;
+		i++;
+	}
+	tab[j] = 0;
 	return (tab);
 }
