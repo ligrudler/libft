@@ -6,13 +6,13 @@
 /*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:18:19 by lgrudler          #+#    #+#             */
-/*   Updated: 2018/11/22 16:31:24 by lgrudler         ###   ########.fr       */
+/*   Updated: 2018/11/24 17:47:13 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_count_words(char const *s, char c)
+static int		ft_count_words(char const *s, char c)
 {
 	int i;
 	int mot;
@@ -35,7 +35,7 @@ int		ft_count_words(char const *s, char c)
 	return (mot);
 }
 
-int		ft_count_letters(const char *s, char c, int i)
+static int		ft_count_letters(const char *s, char c, int i)
 {
 	int k;
 
@@ -48,19 +48,14 @@ int		ft_count_letters(const char *s, char c, int i)
 	return (k);
 }
 
-char	**ft_strsplit(char const *s, char c)
+static char		**whtab(char **tab, int mot, char c, char const *s)
 {
-	int		mot;
-	int		i;
-	char	**tab;
-	int		k;
-	int		j;
+	int i;
+	int j;
+	int k;
 
-	j = 0;
 	i = 0;
-	mot = ft_count_words(s, c);
-	if (!(tab = (char**)malloc(sizeof(char*) * mot + 1)))
-		return (0);
+	j = 0;
 	while (s[i] && j < mot)
 	{
 		while (s[i] == c)
@@ -69,9 +64,25 @@ char	**ft_strsplit(char const *s, char c)
 		tab[j] = ft_strsub(s, i, k);
 		while (s[i] != c)
 			i++;
-		j++;
 		i++;
+		j++;
 	}
 	tab[j] = 0;
+	return (tab);
+}
+
+char			**ft_strsplit(char const *s, char c)
+{
+	int		mot;
+	char	**tab;
+
+	if (s == NULL)
+		return (NULL);
+	mot = ft_count_words(s, c);
+	if (!(tab = (char**)malloc(sizeof(char*) * (mot + 1))))
+		return (NULL);
+	whtab(tab, mot, c, s);
+	if (tab == NULL)
+		return (0);
 	return (tab);
 }

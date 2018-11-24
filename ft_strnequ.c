@@ -6,7 +6,7 @@
 /*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 14:57:04 by lgrudler          #+#    #+#             */
-/*   Updated: 2018/11/20 17:16:02 by lgrudler         ###   ########.fr       */
+/*   Updated: 2018/11/24 17:03:46 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,14 @@ int	ft_strnequ(char const *s1, char const *s2, size_t n)
 	i = 0;
 	if (n == 0)
 		return (1);
-	while (s1[i] == s2[i])
+	if (s1 != NULL && s2 != NULL)
 	{
-		if ((!(s1[i]) && !(s2[i])) || (i == n - 1))
-			return (1);
-		i++;
+		while (s1[i] == s2[i])
+		{
+			if ((!(s1[i]) && !(s2[i])) || (i == n - 1))
+				return (1);
+			i++;
+		}
 	}
 	return (0);
 }
