@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 15:10:27 by lgrudler          #+#    #+#             */
-/*   Updated: 2018/11/24 19:44:39 by lgrudler         ###   ########.fr       */
+/*   Created: 2018/11/24 19:48:52 by lgrudler          #+#    #+#             */
+/*   Updated: 2018/11/24 19:51:02 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strupcase(char *str)
 {
-	size_t	i;
-	char	*str;
+	int a;
 
-	if (*needle == '\0')
-		return ((char*)haystack);
-	i = ft_strlen(needle);
-	str = (char*)haystack;
-	while (*str && len-- >= i)
+	a = 0;
+	while (str[a])
 	{
-		if (ft_memcmp(str, needle, i) == 0)
-			return (str);
-		str++;
+		while (str[a] <= 'z' && str[a] >= 'a')
+			str[a] = str[a] - 32;
+		a++;
 	}
-	return (0);
+	return (str);
 }

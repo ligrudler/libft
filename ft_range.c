@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 17:10:09 by judumay           #+#    #+#             */
-/*   Updated: 2018/11/24 19:45:35 by lgrudler         ###   ########.fr       */
+/*   Created: 2018/11/24 20:07:42 by lgrudler          #+#    #+#             */
+/*   Updated: 2018/11/24 20:10:55 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+int	*ft_range(int min, int max)
 {
-	t_list	*new;
-	t_list	*begin_elem;
-	t_list	*temp;
+	int i;
+	int *dest;
 
-	if (!lst || !f)
-		return (0);
-	temp = f(lst);
-	if (!(new = ft_lstnew(temp->content, temp->content_size)))
+	if (min >= max)
 		return (NULL);
-	begin_elem = new;
-	lst = lst->next;
-	while (lst)
+	if (!(dest = (int*)malloc(sizeof(int*) * (max - min))))
+		return (NULL);
+	i = 0;
+	while (min != max)
 	{
-		temp = f(lst);
-		if (!(new->next = ft_lstnew(temp->content, temp->content_size)))
-			return (NULL);
-		new = new->next;
-		lst = lst->next;
+		dest[i] = min;
+		min++;
+		i++;
 	}
-	return (begin_elem);
+	dest[i] = '\0';
+	return (dest);
 }

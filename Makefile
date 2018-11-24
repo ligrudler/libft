@@ -6,7 +6,7 @@
 #    By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 13:21:42 by lgrudler          #+#    #+#              #
-#    Updated: 2018/11/24 18:10:02 by lgrudler         ###   ########.fr        #
+#    Updated: 2018/11/24 20:11:16 by lgrudler         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,11 @@ SRC = 	ft_atoi.c \
 		ft_lstadd.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
+		ft_strupcase.c \
+		ft_strlowercase.c \
+		ft_strcapitalize.c \
+		ft_isprintable.c \
+		ft_range.c \
 
 HDR = ./libft.h
 

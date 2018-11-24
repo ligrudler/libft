@@ -6,7 +6,7 @@
 /*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:18:19 by lgrudler          #+#    #+#             */
-/*   Updated: 2018/11/24 17:47:13 by lgrudler         ###   ########.fr       */
+/*   Updated: 2018/11/24 20:38:28 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ static char		**whtab(char **tab, int mot, char c, char const *s)
 		while (s[i] == c)
 			i++;
 		k = ft_count_letters(s, c, i);
+		if (k == 0)
+			return (0);
 		tab[j] = ft_strsub(s, i, k);
 		while (s[i] != c)
 			i++;
