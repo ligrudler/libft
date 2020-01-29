@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: grudler <grudler@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 13:21:42 by lgrudler          #+#    #+#              #
-#    Updated: 2018/11/24 20:11:16 by lgrudler         ###   ########.fr        #
+#    Updated: 2019/09/03 20:41:10 by grudler          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-
+CC = gcc
 FLAGS = -Wall -Werror -Wextra
 
 SRC = 	ft_atoi.c \
@@ -77,6 +77,13 @@ SRC = 	ft_atoi.c \
 		ft_strcapitalize.c \
 		ft_isprintable.c \
 		ft_range.c \
+		get_next_line.c \
+		ft_strjoin_gnl.c \
+		ft_strsplit_2car.c \
+		ft_atol.c \
+		ft_abs.c \
+		ft_error.c \
+		ft_htoi.c
 
 HDR = ./libft.h
 
@@ -85,15 +92,15 @@ OBJET = $(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME) :
-	gcc $(FLAGS) -c $(SRC) -I $(HDR)
-	ar rc $(NAME) $(OBJET)
-	ranlib $(NAME)
+	@gcc $(FLAGS) -c $(SRC) -I $(HDR)
+	@ar rc $(NAME) $(OBJET)
+	@ranlib $(NAME)
 
 clean :
-	rm -rf $(OBJET)
+	@rm -rf $(OBJET)
 
 fclean : clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re : fclean all
 

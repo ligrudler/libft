@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin_gnl.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/10 17:24:11 by lgrudler          #+#    #+#             */
-/*   Updated: 2019/05/09 17:34:35 by lgrudler         ###   ########.fr       */
+/*   Created: 2019/03/02 14:52:53 by lgrudler          #+#    #+#             */
+/*   Updated: 2019/05/03 15:21:20 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+char	*ft_strjoin_gnl(char const *s1, char const *s2)
 {
-	unsigned int	stt;
-	unsigned int	end;
-	char			*s2;
+	char		*str;
+	const int	l1 = (s1) ? ft_strlen(s1) : 0;
+	const int	l2 = (s2) ? ft_strlen(s2) : 0;
 
-	stt = 0;
-	if (s == NULL)
+	if (!(str = (char *)malloc(sizeof(char) * (l1 + l2 + 1))))
 		return (NULL);
-	while ((s[stt] == ' ' || s[stt] == '\n' || s[stt] == '\t') && s[stt])
-		stt++;
-	end = ft_strlen(s);
-	while ((s[end] == ' ' || s[end] == '\n' || s[end] == '\t'
-				|| s[end] == '\0') && (end > stt))
-		end--;
-	s2 = ft_strsub(s, stt, (end + 1 - stt));
-	return (s2);
+	ft_memcpy(str, s1, l1);
+	ft_memcpy(str + l1, s2, l2);
+	str[l1 + l2] = '\0';
+	return (str);
 }

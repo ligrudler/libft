@@ -6,13 +6,13 @@
 /*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:18:19 by lgrudler          #+#    #+#             */
-/*   Updated: 2019/05/03 15:21:01 by lgrudler         ###   ########.fr       */
+/*   Updated: 2019/03/04 17:34:37 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_count_words(char const *s, char c)
+static int		ft_count_words2(char const *s, t_car car)
 {
 	int i;
 	int mot;
@@ -23,9 +23,9 @@ static int		ft_count_words(char const *s, char c)
 	check = 1;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
+		if (s[i] == car.y || s[i] == car.z)
 			check = 1;
-		if (s[i] != c && check == 1)
+		if ((s[i] != car.y && check == 1) && (s[i] != car.z && check == 1))
 		{
 			mot++;
 			check = 0;
@@ -35,12 +35,12 @@ static int		ft_count_words(char const *s, char c)
 	return (mot);
 }
 
-static int		ft_count_letters(const char *s, char c, int i)
+static int		ft_count_letters2(const char *s, t_car car, int i)
 {
 	int k;
 
 	k = 0;
-	while (s[i] != c)
+	while (s[i] != car.y && s[i] != car.z)
 	{
 		k++;
 		i++;
@@ -48,7 +48,7 @@ static int		ft_count_letters(const char *s, char c, int i)
 	return (k);
 }
 
-static char		**whtab(char **tab, int mot, char c, char const *s)
+static char		**whtab2(char **tab, int mot, t_car car, char const *s)
 {
 	int i;
 	int j;
@@ -58,13 +58,13 @@ static char		**whtab(char **tab, int mot, char c, char const *s)
 	j = 0;
 	while (s[i] && j < mot)
 	{
-		while (s[i] == c)
+		while (s[i] == car.y || s[i] == car.z)
 			i++;
-		k = ft_count_letters(s, c, i);
+		k = ft_count_letters2(s, car, i);
 		if (k == 0)
 			return (0);
 		tab[j] = ft_strsub(s, i, k);
-		while (s[i] != c)
+		while (s[i] != car.y && s[i] != car.z)
 			i++;
 		i++;
 		j++;
@@ -73,17 +73,17 @@ static char		**whtab(char **tab, int mot, char c, char const *s)
 	return (tab);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char			**ft_strsplit_2car(char const *s, t_car car)
 {
 	int		mot;
 	char	**tab;
 
 	if (s == NULL)
 		return (NULL);
-	mot = ft_count_words(s, c);
+	mot = ft_count_words2(s, car);
 	if (!(tab = (char**)malloc(sizeof(char*) * (mot + 1))))
 		return (NULL);
-	whtab(tab, mot, c, s);
+	whtab2(tab, mot, car, s);
 	if (tab == NULL)
 		return (0);
 	return (tab);

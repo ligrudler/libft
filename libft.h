@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   includes.h                                         :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgrudler <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lgrudler <lgrudler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 21:25:34 by lgrudler          #+#    #+#             */
-/*   Updated: 2018/11/24 20:11:47 by lgrudler         ###   ########.fr       */
+/*   Updated: 2019/11/27 17:18:15 by lgrudler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,26 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+# include <fcntl.h>
+
+# define BUFF_SIZE 10
+
+typedef struct		s_car
+{
+	int y;
+	int z;
+}					t_car;
+
+typedef struct		s_bres
+{
+	int dx;
+	int dy;
+	int sx;
+	int sy;
+	int err;
+	int e2;
+	int color;
+}					t_bres;
 
 typedef struct		s_list
 {
@@ -91,5 +111,12 @@ char				*ft_strlowcase(char *str);
 char				*ft_strcapitalize(char *str);
 int					ft_isprintable(char *str);
 int					*ft_range(int min, int max);
+int					get_next_line(const int fd, char **line);
+char				*ft_strjoin_gnl(char const *s1, char const *s2);
+char				**ft_strsplit_2car(char const *s, t_car car);
+long int			ft_atol(const char *str);
+int					ft_abs(int nb);
+void				ft_error();
+int					ft_htoi(char *hex);
 
 #endif
